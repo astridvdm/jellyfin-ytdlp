@@ -1,15 +1,18 @@
 name: Jellyfin yt-dlp
-run-name: ${{ gitea.actor }} is testing out Gitea Actions 🚀
+run-name: Build container
 
 jobs:
-  Explore-Gitea-Actions:
-    runs-on: ubuntu-latest
+  Build-container:
+    runs-on: docker-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Login to docker registry
-        run: docker login -u "DOCKER_USERNAME" -p "DOCKER_PASSWORD" DOCKER_REGISTRY
       - name: Build container
         run: docker build --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
-      - name: Push container to registry
-        run: docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
+   deploy-container:
+     runs-on: docker-latest
+     steps:
+       - name: Login to docker registry
+         run: docker login -u "DOCKER_USERNAME" -p "DOCKER_PASSWORD" DOCKER_REGISTRY
+       - name: Push container to registry
+         run: docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
