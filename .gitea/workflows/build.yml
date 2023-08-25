@@ -1,0 +1,24 @@
+stages:
+
+- build
+
+
+
+docker_build:
+
+
+
+stage: build
+
+
+before_script: docker login -u max -p 'H3[N^mDqFUV[9zCu' gitea.svdm.me
+
+script:
+
+
+
+- docker build -t gitea.svdm.me/max/jellyfin-ytdlp:latest .
+
+
+
+- docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
