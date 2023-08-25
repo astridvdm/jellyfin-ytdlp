@@ -24,6 +24,8 @@ script:
   - docker build -t gitea.svdm.me/max/jellyfin-ytdlp:latest .
 
 
+docker_deploy:
+
 
 stage: deploy
 before_script: docker login -u max -p 'H3[N^mDqFUV[9zCu' gitea.svdm.me
