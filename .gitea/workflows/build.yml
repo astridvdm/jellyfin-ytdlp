@@ -1,17 +1,16 @@
-docker-build:
-  # Use the official docker image.
-  image: docker:latest
-  stage: build
-  services:
-    - docker:dind
-  before_script:
-    - docker login -u "DOCKER_USERNAME" -p "DOCKER_PASSWORD" DOCKER_REGISTRY
-  # Default branch leaves tag empty (= latest tag)
-  # All other branches are tagged with the escaped branch name (commit ref slug)
-  script:
-    - docker build --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
-    - docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
-  # Run this job in a branch where a Dockerfile exists
-  rules:
-    exists:
-      - Dockerfile
+name: Jellyfin yt-dlp
+run-name: ${{ gitea.actor }} is testing out Gitea Actions 🚀
+on: [push]
+
+jobs:
+  Explore-Gitea-Actions:
+    runs-on: docker:latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Login to docker registry
+        run: docker login -u "DOCKER_USERNAME" -p "DOCKER_PASSWORD" DOCKER_REGISTRY
+      - name: Build container
+        run: docker build --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
+      - name: Push container to registry
+        run: docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
