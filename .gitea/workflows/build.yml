@@ -6,7 +6,7 @@ jobs:
     runs-on: docker-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v3
+        uses: actions/checkout
       - name: Build container
         run: docker build --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
   deploy-container:
