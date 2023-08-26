@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install docker
-        run: curl -fsSL https://get.docker.com -o get-docker.sh
-        run: sh get-docker.sh
+        run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Build container
@@ -24,8 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install docker
-        run: curl -fsSL https://get.docker.com -o get-docker.sh
-        run: sh get-docker.sh
+        run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
       - name: Login to docker registry
         run: docker login -u "DOCKER_USERNAME_GITEA" -p "DOCKER_PASSWORD_GITEA" DOCKER_REGISTRY_GITEA
       - name: Push container to registry
