@@ -3,13 +3,13 @@ run-name: Build container
 on: [push]
 
 jobs:
-
   buildx:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Login to the Container registry
-        uses: docker/login-action@v2
-        with:
+    container:
+      image: catthehacker/ubuntu:act-latest
+      steps:
+      - 
+        name: Check out repository code
+        uses: actions/checkout@v3
           registry: hub.docker.com
           username: maxvdm
           password: $DOCKER_PASSWORD
