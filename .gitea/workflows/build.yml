@@ -4,8 +4,7 @@ on: [commit]
 
 jobs:
   Build-container:
-    runs-on: docker-latest
-    services: dind-latest
+    runs-on: dind-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout
