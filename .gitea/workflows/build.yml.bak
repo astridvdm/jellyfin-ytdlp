@@ -1,10 +1,9 @@
 name: Jellyfin yt-dlp
 run-name: Build container
-on: [commit]
 
 jobs:
   Build-container:
-    runs-on: dind-latest
+    runs-on: docker-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout
