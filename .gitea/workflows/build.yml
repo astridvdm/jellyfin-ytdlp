@@ -5,6 +5,7 @@ on: [push]
 jobs:
   login:
     runs-on: ubuntu-latest
+    image: docker-latest
     steps:
       -
         name: Login to Docker Hub
@@ -13,7 +14,8 @@ jobs:
          username: maxvdm
          password: MRw8BTsyhGCqy;cw
   buildx:
-    runs-on: ubuntu-22.04:docker://docker-latest:latest
+    runs-on: ubuntu-latest
+    image: docker-latest
     steps:
       -
         name: Checkout
