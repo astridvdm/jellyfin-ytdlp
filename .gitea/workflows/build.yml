@@ -5,10 +5,10 @@ on: [push]
 jobs:
   build:
     runs-on: docker-latest
-    container:
-      image: docker-latest
-      services:
-        - dind-latest:latest
+    # container:
+    #   image: docker-latest
+    #   services:
+    #     - dind-latest:latest
     steps:
       -
         name: Checkout
