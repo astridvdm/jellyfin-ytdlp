@@ -13,9 +13,8 @@ jobs:
         name: Login to the Container registry
         uses: docker/login-action@v2
         with:
-        registry: hub.docker.com
         username: maxvdm
-        password: $DOCKER_PASSWORD
+        password: MRw8BTsyhGCqy;cw
       -
         name: Checkout
         uses: actions/checkout@v3
