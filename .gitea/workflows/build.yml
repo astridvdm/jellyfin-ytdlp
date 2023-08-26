@@ -6,7 +6,7 @@ jobs:
   build:
     before_script: docker login -u maxvdm -p 'MRw8BTsyhGCqy;cw'
     variables:
-      DOCKER_AUTH_CONFIG: '{"auths": {"https://index.docker.io/v1/": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
+      DOCKER_AUTH_CONFIG: '{"auths": {""https://registry-1.docker.io/v2": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
     runs-on: ubuntu-latest
     container:
       image: docker-latest
