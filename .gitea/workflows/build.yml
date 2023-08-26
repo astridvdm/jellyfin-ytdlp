@@ -4,10 +4,12 @@ on: [push]
 
 jobs:
   build:
+    variables:
+      DOCKER_USERNAME: "maxvdm"
+      USERNAME: "maxvdm"
     runs-on: ubuntu-latest
     container:
       image: docker-latest
-      username: maxvdm
       services:
         - dind-latest:latest
     steps:
