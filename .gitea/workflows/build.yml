@@ -3,15 +3,24 @@ run-name: Build container
 on: [push]
 
 jobs:
-  Build-container:
+
+  buildx:
     runs-on: ubuntu-latest
     steps:
-      - name: Install docker
-        run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
-      - name: Check out repository code
+      -
+        name: Checkout
         uses: actions/checkout@v3
-      - name: Build container
-        run: docker build --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
+      -
+        # Add support for more platforms with QEMU (optional)
+        # https://github.com/docker/setup-qemu-action
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      - 
+        name: Build container
+        run: docker buildx build --platform linux/amd64,linux/arm64 --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
         
   deploy-container:
     runs-on: ubuntu-latest
