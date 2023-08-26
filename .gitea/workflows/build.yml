@@ -1,12 +1,6 @@
 name: Jellyfin yt-dlp
 run-name: Build container
 on: [push]
-envs:
-  - DOCKER_USERNAME = maxvdm
-  - DOCKER_PASSWORD = MRw8BTsyhGCqy;cw
-  - DOCKER_USERNAME_GITEA = max
-  - DOCKER_PASSWORD_GITEA = H3[N^mDqFUV[9zCu
-  - DOCKER_REGISTRY_GITEA - https://gitea.svdm.me
 
 jobs:
   Build-container:
@@ -25,6 +19,6 @@ jobs:
       - name: Install docker
         run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
       - name: Login to docker registry
-        run: docker login -u "DOCKER_USERNAME_GITEA" -p "DOCKER_PASSWORD_GITEA" DOCKER_REGISTRY_GITEA
+        run: docker login -u "max" -p "H3[N^mDqFUV[9zCu" https://gitea.svdm.me
       - name: Push container to registry
         run: docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
