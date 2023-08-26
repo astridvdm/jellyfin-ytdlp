@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   Build-container:
-    runs-on: docker-latest
+    runs-on: ubuntu-latest:docker://docker-latest:latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@main
