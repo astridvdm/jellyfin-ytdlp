@@ -6,7 +6,7 @@ jobs:
   login:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu-20.22
+      image: ghcr.io/catthehacker/ubuntu:runner-latest
     steps:
       -
         name: Login to Docker Hub
