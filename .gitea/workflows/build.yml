@@ -1,5 +1,6 @@
 name: Jellyfin yt-dlp
 run-name: Build container
+on: [commit]
 
 jobs:
   Build-container:
