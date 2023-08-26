@@ -3,7 +3,7 @@ run-name: Build container
 on: [push]
 
 variables:
-  DOCKER_AUTH_CONFIG: '{"auths": {""https://registry-1.docker.io/v2": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
+  DOCKER_AUTH_CONFIG: '{"auths": {"index.docker.io": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
 
 jobs:
   build:
