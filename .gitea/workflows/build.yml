@@ -2,11 +2,11 @@ name: Jellyfin yt-dlp
 run-name: Build container
 on: [push]
 
+variables:
+  DOCKER_AUTH_CONFIG: '{"auths": {""https://registry-1.docker.io/v2": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
+
 jobs:
   build:
-    before_script: docker login -u maxvdm -p 'MRw8BTsyhGCqy;cw'
-    variables:
-      DOCKER_AUTH_CONFIG: '{"auths": {""https://registry-1.docker.io/v2": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
     runs-on: ubuntu-latest
     container:
       image: docker-latest
