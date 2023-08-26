@@ -2,9 +2,6 @@ name: Jellyfin yt-dlp
 run-name: Build container
 on: [push]
 
-variables:
-  DOCKER_AUTH_CONFIG: '{"auths": {"index.docker.io": {"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c="}}}'
-
 jobs:
   build:
     runs-on: ubuntu-latest
