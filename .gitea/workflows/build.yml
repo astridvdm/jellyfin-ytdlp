@@ -9,33 +9,23 @@ envs:
   - DOCKER_REGISTRY_GITEA - https://gitea.svdm.me
 
 jobs:
-  login:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu-latest
-    steps:
-      -
-        name: Login to GitLab
-        uses: docker/login-action@v2
-        with:
-          registry: hub.docker.com
-          username: ${{ DOCKER_USERNAME }}
-          password: ${{ DOCKER_PASSWORD }}
   Build-container:
     runs-on: ubuntu-latest
-    container:
-      image: docker-latest:latest
     steps:
+      - name: Install docker
+        run: curl -fsSL https://get.docker.com -o get-docker.sh
+        run: sh get-docker.sh
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Build container
         run: docker build --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
         
   deploy-container:
-    runs-on: docker-latest
-    container:
-      image: docker-latest:latest
+    runs-on: ubuntu-latest
     steps:
+      - name: Install docker
+        run: curl -fsSL https://get.docker.com -o get-docker.sh
+        run: sh get-docker.sh
       - name: Login to docker registry
         run: docker login -u "DOCKER_USERNAME_GITEA" -p "DOCKER_PASSWORD_GITEA" DOCKER_REGISTRY_GITEA
       - name: Push container to registry
