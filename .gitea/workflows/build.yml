@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker-latest
+      auth:
+        username: maxvdm
+        password: MRw8BTsyhGCqy;cw
       services:
         - dind-latest:latest
     steps:
