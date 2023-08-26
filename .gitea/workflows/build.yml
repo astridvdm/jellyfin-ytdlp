@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker-latest
-      docker-username: maxvdm
+      username: maxvdm
       services:
         - dind-latest:latest
     steps:
