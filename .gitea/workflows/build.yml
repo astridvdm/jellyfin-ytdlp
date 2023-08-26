@@ -5,8 +5,17 @@ on: [push]
 jobs:
   build:
     variables:
-      DOCKER_USERNAME: "maxvdm"
-      USERNAME: "maxvdm"
+      DOCKER_AUTH_CONFIG:
+"{
+	"auths": {
+		"https://registry-1.docker.io/v2/library/docker-latest/manifests/latest": {
+			"auth": "bWF4dmRtOk1SdzhCVHN5aEdDcXk7Y3c"
+		},
+		"https://index.docker.io/v1/": {
+			"auth": "bWF4dmRtOmRja3JfcGF0X3JSRl84a0c1M05pUlZUYTJwT2FfdGlJNUM5WQ=="
+		}
+	}
+}"
     runs-on: ubuntu-latest
     container:
       image: docker-latest
