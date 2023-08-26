@@ -11,6 +11,8 @@ envs:
 jobs:
   login:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu-latest
     steps:
       -
         name: Login to GitLab
