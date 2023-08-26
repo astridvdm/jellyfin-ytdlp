@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: docker-latest:docker://docker-latest:latest
+    runs-on: docker-latest
     container:
       image: docker-latest
       services:
