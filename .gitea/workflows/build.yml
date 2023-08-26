@@ -5,6 +5,8 @@ on: [push]
 jobs:
   login:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu-20.22
     steps:
       -
         name: Login to Docker Hub
