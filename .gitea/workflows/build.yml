@@ -3,13 +3,11 @@ run-name: Build container
 on: [push]
 
 jobs:
-  buildx:
+  build:
     runs-on: ubuntu-latest
     container:
       image: docker-latest
-      auth:
-        username: maxvdm
-        password: MRw8BTsyhGCqy;cw
+      docker-username: maxvdm
       services:
         - dind-latest:latest
     steps:
@@ -30,9 +28,13 @@ jobs:
         
   # deploy-container:
   #   runs-on: ubuntu-latest
+  #   container:
+  #     image: docker-latest
+  #     services:
+  #       - dind-latest:latest
   #   steps:
-  #     - name: Install docker
-  #       run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+  #     # - name: Install docker
+  #     #   run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
   #     - name: Login to docker registry
   #       run: docker login -u "max" -p "H3[N^mDqFUV[9zCu" https://gitea.svdm.me
   #     - name: Push container to registry
