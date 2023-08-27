@@ -6,7 +6,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: hera:host
+    runs-on: hera
     container:
       image: docker-latest:latest
       services:
