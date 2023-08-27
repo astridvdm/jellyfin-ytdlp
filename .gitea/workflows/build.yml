@@ -9,9 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: hera
+    runs-on: hera-docker
     container:
-      image: docker-latest:latest
+      # image: docker-latest:latest
       services:
         - dind-latest:latest
     steps:
