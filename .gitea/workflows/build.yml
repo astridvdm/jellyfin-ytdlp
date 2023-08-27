@@ -6,9 +6,9 @@ on: [push]
 
 jobs:
   build:
-    runs-on: docker-latest
+    runs-on: hera:host
     container:
-      image: docker-latest:latest:maxvdm
+      image: docker-latest:latest
       services:
         - dind-latest:latest
     steps:
