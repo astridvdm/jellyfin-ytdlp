@@ -1,0 +1,43 @@
+name: Jellyfin yt-dlp
+run-name: Build container
+on: 
+  commit:
+# variables:
+#   - DOCKER_AUTH_CONFIG: '{ "auths": { "gitea.svdm.me": { "auth": "bWF4OkgzW05ebURxRlVWWzl6Q3U=" }, "https://registry-1.docker.io/v2": { "auth": "bWF4dmRtOmRja3JfcGF0X3JSRl84a0c1M05pUlZUYTJwT2FfdGlJNUM5WQ==" }}}'
+
+jobs:
+  build:
+    runs-on: hera-docker
+    container:
+      # image: docker-latest:latest
+      services:
+        - dind-latest:latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        platforms: amd64,arm64
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        platforms: amd64,arm64
+      - 
+        name: Build container
+        run: docker buildx build --platform amd64,arm64 --pull -t "gitea.svdm.me/max/jellyfin-ytdlp:latest" .
+        
+  # deploy-container:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: docker-latest
+  #     services:
+  #       - dind-latest:latest
+  #   steps:
+  #     # - name: Install docker
+  #     #   run: curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh
+  #     - name: Login to docker registry
+  #       run: docker login -u "max" -p "H3[N^mDqFUV[9zCu" https://gitea.svdm.me
+  #     - name: Push container to registry
+  #       run: docker push gitea.svdm.me/max/jellyfin-ytdlp:latest
