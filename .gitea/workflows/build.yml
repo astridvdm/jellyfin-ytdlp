@@ -1,6 +1,5 @@
 name: Jellyfin yt-dlp
 run-name: Build container
-on: [push]
 # variables:
 #   - DOCKER_AUTH_CONFIG: '{ "auths": { "gitea.svdm.me": { "auth": "bWF4OkgzW05ebURxRlVWWzl6Q3U=" }, "https://registry-1.docker.io/v2": { "auth": "bWF4dmRtOmRja3JfcGF0X3JSRl84a0c1M05pUlZUYTJwT2FfdGlJNUM5WQ==" }}}'
 
