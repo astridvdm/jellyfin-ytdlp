@@ -38,4 +38,6 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: maxvdm/jellyfin-ytdlp:latest
+          tags: |
+            "maxvdm/jellyfin-ytdlp:latest"
+            "ghcr.io/maxvdmerwe/jellyfin-ytdlp:latest"
