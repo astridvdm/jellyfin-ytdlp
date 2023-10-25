@@ -8,6 +8,11 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      # Allows pushing to the GitHub Container Registry
+      packages: write
     steps:
       -
         name: Set up QEMU
@@ -31,7 +36,7 @@ jobs:
         with:
           REGISTRY: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUBB_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build and push
         uses: docker/build-push-action@v4
