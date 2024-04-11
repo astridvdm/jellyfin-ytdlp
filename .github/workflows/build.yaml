@@ -6,7 +6,7 @@ on:
       - 'main'
 
 jobs:
-  docker:
+  Build image:
     runs-on: ubuntu-latest
     permissions:
       contents: read
