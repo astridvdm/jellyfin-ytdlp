@@ -38,4 +38,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            "ghcr.io/astridvdm/caddy-cloudflare:latest"
+            "ghcr.io/astridvdm/jellyfin-ytdlp:latest"
